@@ -730,8 +730,6 @@ function payrollPage() {
   </div>`;
 }
 
-function missingPage(){ return '<div class="panel"><div class="empty">Cette page est indisponible dans cette version.</div></div>'; }
-
 const pages = {
   dashboard: dashboardPage,
   sales: salesPage,
@@ -741,10 +739,10 @@ const pages = {
   payroll: (typeof payrollPage === "function") ? payrollPage : function(){
     return '<div class="panel"><div class="empty">La page Salaires est indisponible dans cette version.</div></div>';
   },
-  members: (typeof membersPage === "function") ? membersPage : missingPage,
-  accounting: (typeof accountingPage === "function") ? accountingPage : missingPage,
-  reports: (typeof reportsPage === "function") ? reportsPage : missingPage,
-  settings: (typeof settingsPage === "function") ? settingsPage : missingPage
+  members: membersPage,
+  accounting: accountingPage,
+  reports: reportsPage,
+  settings: settingsPage
 };
 
 async function initializeAuth() { return; }
